@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Food Delivery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Food Delivery Logo"> <!-- Your logo image -->
+            <h1>Food Delivery</h1> <!-- Your logo name -->
+        </div>
+
+        <!-- Navigation Bar -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="about-us.html">About us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact-us.html">Contact us</a></li>
+                <li><a href="login.html" class="login-btn">Login</a></li>
+                <li><a href="add-to-cart.html">Cart</a></li>
+            </ul>
+        </nav>
+
+     
+     
+</header>
+
+    <!-- Hero Section with Background Image -->
+    <section id="hero">
+        <div class="hero-content">
+            <h2>Delicious Meals Delivered to Your Door</h2>
+            <p>Enjoy fresh and hot meals with just a few clicks!</p>
+        </div>
+    </section>
+
+    <!-- Featured Food Section -->
+    <section id="featured-food">
+        <h2>Featured Food</h2>
+        <div class="food-items">
+            <div class="food-item">
+                <img src="pizza.jpg" alt="Pizza">
+                <h3>Pizza</h3>
+                <p>Delicious pizza with fresh ingredients.</p>
+            </div>
+            <div class="food-item">
+                <img src="burger.jpg" alt="Burger">
+                <h3>Burger</h3>
+                <p>Juicy burgers with a variety of toppings.</p>
+            </div>
+            <div class="food-item">
+                <img src="sushi.jpg" alt="Sushi">
+                <h3>Sushi</h3>
+                <p>Fresh sushi rolls with your favorite fillings.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Food Delivery. All rights reserved.</p>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="login" class="modal">
+        <h2>Login</h2>
+        <form action="/login" method="POST">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <!-- Sign Up Modal -->
+    <div id="signup" class="modal">
+        <h2>Sign Up</h2>
+        <form action="/signup" method="POST">
+            <label for="signup-email">Email:</label>
+            <input type="email" id="signup-email" name="email" required>
+            <label for="signup-password">Password:</label>
+            <input type="password" id="signup-password" name="password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script> <!-- Link to your JavaScript file -->
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Menu | Food Delivery</title>
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="contact-us.html">Contact</a></li>
+                <li><a href="about-us.html">About us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="menu-container">
+            <h1>Burger Menu</h1>
+
+            <div class="menu-item">
+                <img src="cheese-burger.jpg" alt="Cheese Burger">
+                <h2>Cheeseburger</h2>
+                <p>A juicy beef patty with melted cheese, lettuce, and tomato.</p>
+                <span class="price">Rs.299</span>
+                <button onclick="addToCart('Cheese Burger', 'Rs.299', 'cheese-burger.jpg')"style="background: #ff5252;
+                color: #fff;
+                padding: 12px 10px;
+                border: none;
+                border-radius: 15px;
+                font-size: 1.1rem;
+                cursor: pointer;
+                transition: 0.3s ease;
+                width: 50%;">Add to Cart</button>
+            </div>
+
+            <div class="menu-item">
+                <img src="bacon-burger.jpg" alt="Bacon burger">
+                <h2>Bacon Burger</h2>
+                <p>A burger with crispy bacon, cheese, and BBQ sauce.</p>
+                <span class="price">Rs.199</span>
+                <button onclick="addToCart('Bacon Burger', 'Rs.199', 'bacon-burger.jpg')"style="background: #ff5252;
+                color: #fff;
+                padding: 12px 20px;
+                border: none;
+                border-radius: 25px;
+                font-size: 1.1rem;
+                cursor: pointer;
+                transition: 0.3s ease;
+                width: 100%;">Add to Cart</button>
+            </div>
+
+            <div class="menu-item">
+                <img src="Veggie-burger.jpg" alt="Veggie Burger">
+                <h2>Veggie Burger</h2>
+                <p>A healthy burger made with a vegetable patty, served with fresh veggies.</p>
+                <span class="price">Rs.399</span>
+                <button onclick="addToCart('Veggie Burger', 'Rs.399', 'veggie-burger.jpg')"style="background: #ff5252;
+                    color: #fff;
+                    padding: 12px 20px;
+                    border: none;
+                    border-radius: 25px;
+                    font-size: 1.1rem;
+                    cursor: pointer;
+                    transition: 0.3s ease;
+                    width: 100%;">Add to Cart</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Food Delivery. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const API_URL = "http://localhost:8080";
+
+        function addToCart(name, price, image) {
+            fetch(`${API_URL}/add-to-cart`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name, price, image })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                window.location.href = "add-to-cart.html"; // Go to cart page
+            })
+            .catch(error => console.error("Error adding to cart:", error));
+        }
+    </script>
+
+</body>
+</html>

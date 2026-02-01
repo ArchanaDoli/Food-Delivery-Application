@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dessert Menu | Food Delivery</title>
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="contact-us.html">Contact</a></li>
+                <li><a href="about-us.html">About us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="menu-container">
+            <h1>Dessert Menu</h1>
+
+            <div class="menu-item">
+                <img src="chocolate-cake.jpg" alt="Chocolate Cake">
+                <h2>Chocolate Cake</h2>
+                <p>Decadent chocolate cake with rich chocolate frosting.</p>
+                <span class="price">Rs.699</span>
+                <button onclick="addToCart('Chocolate Cake', 'Rs.699', 'chocolate-cake.jpg')"style="background: #ff5252;
+                color: #fff;
+                padding: 12px 10px;
+                border: none;
+                border-radius: 15px;
+                font-size: 1.1rem;
+                cursor: pointer;
+                transition: 0.3s ease;
+                width: 50%;">Add to Cart</button>
+            </div>
+
+            <div class="menu-item">
+                <img src="cheese-cake.jpg" alt="Cheesecake">
+                <h2>Cheesecake</h2>
+                <p>Creamy cheesecake with a buttery graham cracker crust.</p>
+                <span class="price">Rs.899</span>
+                <button onclick="addToCart('Cheese Cake', 'Rs.899', 'cheese-cake.jpg')"style="background: #ff5252;
+                color: #fff;
+                padding: 12px 10px;
+                border: none;
+                border-radius: 15px;
+                font-size: 1.1rem;
+                cursor: pointer;
+                transition: 0.3s ease;
+                width: 50%;">Add to Cart</button>
+            </div>
+
+            <div class="menu-item">
+                <img src="ice-cream.jpg" alt="Veggie Pizza">
+                <h2>Ice Cream</h2>
+                <p>Rich and creamy ice cream in your favorite flavors.</p>
+                <span class="price">Rs.399</span>
+                <button onclick="addToCart('Ice Cream', 'Rs.399', 'ice-cream.jpg')"style="background: #ff5252;
+                color: #fff;
+                padding: 12px 10px;
+                border: none;
+                border-radius: 15px;
+                font-size: 1.1rem;
+                cursor: pointer;
+                transition: 0.3s ease;
+                width: 50%;">Add to Cart</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Food Delivery. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const API_URL = "http://localhost:8080";
+
+        function addToCart(name, price, image) {
+            fetch(`${API_URL}/add-to-cart`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name, price, image })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                window.location.href = "add-to-cart.html"; // Go to cart page
+            })
+            .catch(error => console.error("Error adding to cart:", error));
+        }
+    </script>
+
+</body>
+</html>

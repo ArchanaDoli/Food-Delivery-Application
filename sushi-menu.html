@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Menu | Food Delivery</title>
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="contact-us.html">Contact</a></li>
+                <li><a href="about-us.html">About us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="menu-container">
+            <h1>Sushi Menu</h1>
+
+            <div class="menu-item">
+                <img src="sushi-roll.jpg" alt="Sushi Roll">
+                <h2>Sushi Roll</h2>
+                <p>Fresh sushi roll with tuna, salmon, and avocado.</p>
+                <span class="price">Rs.349</span>
+                <button onclick="addToCart('Sushi Roll', 'Rs.349', 'sushi-roll.jpg')"style="background: #ff5252;
+                color: #fff;
+                padding: 12px 20px;
+                border: none;
+                border-radius: 25px;
+                font-size: 1.1rem;
+                cursor: pointer;
+                transition: 0.3s ease;
+                width: 100%;">Add to Cart</button>
+            </div>
+
+            <div class="menu-item">
+                <img src="sushi-nigiri.jpg" alt="Sushi Nigiri">
+                <h2>Sushi Nigiri</h2>
+                <p>Delicious nigiri with tuna, salmon, and shrimp.</p>
+                <span class="price">Rs.211</span>
+                <button onclick="addToCart('Sushi Nigiri', 'Rs.211', 'sushi-nigiri.jpg')"style="background: #ff5252;
+                color: #fff;
+                padding: 12px 20px;
+                border: none;
+                border-radius: 25px;
+                font-size: 1.1rem;
+                cursor: pointer;
+                transition: 0.3s ease;
+                width: 100%;">Add to Cart</button>
+            </div>
+
+            <div class="menu-item">
+                <img src="tempura-sushi.jpg" alt="Tempura Sushi">
+                <h2>Tempura Sushi</h2>
+                <p>Crispy tempura shrimp sushi served with soy sauce.</p>
+                <span class="price">Rs.439</span>
+                <button onclick="addToCart('Tempura Sushi', 'Rs.439', 'tempura-sushi.jpg')"style="background: #ff5252;
+                color: #fff;
+                padding: 12px 20px;
+                border: none;
+                border-radius: 25px;
+                font-size: 1.1rem;
+                cursor: pointer;
+                transition: 0.3s ease;
+                width: 100%;">Add to Cart</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Food Delivery. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const API_URL = "http://localhost:8080";
+
+        function addToCart(name, price, image) {
+            fetch(`${API_URL}/add-to-cart`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name, price, image })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                window.location.href = "add-to-cart.html"; // Go to cart page
+            })
+            .catch(error => console.error("Error adding to cart:", error));
+        }
+    </script>
+
+</body>
+</html>

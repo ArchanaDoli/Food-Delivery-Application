@@ -1,0 +1,91 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and Basic Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1, h2, h3 {
+    color: #ed482a; /* Tomato red color */
+}
+
+/* Header Section */
+header {
+    background-color: #ed482a; /* Tomato red */
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+header .logo img {
+    width: 150px;
+    margin-right: 60px;
+}
+
+/* About Us Section */
+#about-us {
+    padding: 40px 10%;
+    background-color: #fcfcfc;
+    text-align: center;
+}
+
+#about-us h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+#about-us p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.about-details {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.detail-item {
+    width: 30%;
+    text-align: left;
+}
+
+.detail-item h3 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: #ff6347; /* Tomato red */
+}
+
+.detail-item ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.detail-item ul li {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+/* Responsive Design for Small Screens */
+@media (max-width: 768px) {
+    .about-details {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .detail-item {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
